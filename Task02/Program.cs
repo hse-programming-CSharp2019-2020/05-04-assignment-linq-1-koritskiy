@@ -84,6 +84,10 @@ namespace Task02
             {
                 Console.WriteLine("ArgumentNullException");
             }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
+            }
             catch (InvalidOperationException)
             {
                 Console.WriteLine("InvalidOperationException");
