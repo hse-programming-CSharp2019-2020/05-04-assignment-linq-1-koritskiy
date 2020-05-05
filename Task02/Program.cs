@@ -58,14 +58,14 @@ namespace Task02
             {
                 Console.WriteLine("OverflowException");
             }
-
-            var filteredCollection =
-                arr.TakeWhile(n => n != 0);
             
-            filteredCollection = filteredCollection.Select(n => n * n);
-
             try
             {
+                var filteredCollection =
+                    arr.TakeWhile(n => n != 0);
+            
+                filteredCollection = filteredCollection.Select(n => n * n);
+                
                 // использовать статическую форму вызова метода подсчета среднего
                 var collection = filteredCollection.ToList();
                 double averageUsingStaticForm = collection.Average();
