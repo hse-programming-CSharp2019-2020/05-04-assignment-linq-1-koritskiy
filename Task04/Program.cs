@@ -83,9 +83,9 @@ namespace Task04
             {
                 Console.WriteLine("OverflowException");
             }
-            catch (FormatException)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine("FormatException");
+                Console.WriteLine("InvalidOperationException");
             }
         }
     }
