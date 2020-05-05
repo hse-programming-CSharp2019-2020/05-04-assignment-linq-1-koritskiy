@@ -45,21 +45,24 @@ namespace Task01
             try
             {
                 // Попробуйте осуществить считывание целочисленного массива, записав это ОДНИМ ВЫРАЖЕНИЕМ.
-                arr = (from n in Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
-                    select int.Parse(n)).ToArray();
-
+                arr = Array.ConvertAll(
+                    Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
+                    n => int.Parse(n));
             }
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
+                return;
             }
             catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
+                return;
             }
             catch (OverflowException e)
             {
                 Console.WriteLine(e.Message);
+                return;
             }
 
             // использовать синтаксис запросов!
