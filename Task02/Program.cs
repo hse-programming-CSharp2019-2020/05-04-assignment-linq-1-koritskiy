@@ -62,12 +62,10 @@ namespace Task02
             try
             {
                 var filteredCollection =
-                    arr.TakeWhile(n => n != 0);
-            
-                filteredCollection = filteredCollection.Select(n => n * n);
-                
+                    arr.TakeWhile(n => n != 0).Select(n => n * n);
+
                 // использовать статическую форму вызова метода подсчета среднего
-                var collection = filteredCollection.ToList();
+                var collection = filteredCollection.ToArray();
                 double averageUsingStaticForm = collection.Average();
                 Console.WriteLine($"{averageUsingStaticForm:F3}".Replace('.', ','));
 
