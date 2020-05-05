@@ -65,11 +65,11 @@ namespace Task02
                 // использовать статическую форму вызова метода подсчета среднего
                 var collection = filteredCollection.ToList();
                 double averageUsingStaticForm = collection.Average();
-                Console.WriteLine($"{averageUsingStaticForm:F3}");
+                Console.WriteLine($"{averageUsingStaticForm:F3}".Replace('.', ','));
 
                 // использовать объектную форму вызова метода подсчета среднего
                 double averageUsingInstanceForm = Enumerable.Average(collection);
-                Console.WriteLine($"{averageUsingInstanceForm:F3}");
+                Console.WriteLine($"{averageUsingInstanceForm:F3}".Replace('.', ','));
 
                 
                 // вывести элементы коллекции в одну строку
