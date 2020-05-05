@@ -50,9 +50,13 @@ namespace Task02
             {
                 Console.WriteLine("ArgumentException");
             }
-            catch (Exception)
+            catch (FormatException)
             {
-                Console.WriteLine("Exception");
+                Console.WriteLine("FormatException");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
             }
 
             var filteredCollection =
@@ -76,13 +80,13 @@ namespace Task02
                 Console.WriteLine(arr.TakeWhile(n => n != 0).Select(n => n.ToString())
                     .Aggregate((n, m) => n + " " + m));
             }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("ArgumentNullException");
+            }
             catch (InvalidOperationException)
             {
                 Console.WriteLine("InvalidOperationException");
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Exception");
             }
         }
     }
