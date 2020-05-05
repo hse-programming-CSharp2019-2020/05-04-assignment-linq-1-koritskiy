@@ -67,13 +67,14 @@ namespace Task04
             {
                 checked
                 {
-                    int arrAggregate = 5 + arr.Select((x, index) => x * (int)Math.Pow(-1, index)).Aggregate((n, m) => n + m);
+                    int arrAggregate = 5 + arr.Select((x, index) => x * (int) Math.Pow(-1, index))
+                                           .Aggregate((n, m) => n + m);
                     int arrMyAggregate = MyClass.MyAggregate(arr);
 
                     Console.WriteLine(arrAggregate);
                     Console.WriteLine(arrMyAggregate);
                 }
-            } 
+            }
             catch (ArgumentNullException)
             {
                 Console.WriteLine("ArgumentNullException");
@@ -81,6 +82,10 @@ namespace Task04
             catch (OverflowException)
             {
                 Console.WriteLine("OverflowException");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("FormatException");
             }
         }
     }
