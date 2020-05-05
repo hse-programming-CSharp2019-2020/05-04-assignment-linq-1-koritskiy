@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 /* В задаче не использовать циклы for, while. Все действия по обработке данных выполнять с использованием LINQ
  * 
@@ -38,30 +39,51 @@ namespace Task02
 
         public static void RunTesk02()
         {
-            int[] arr;
+            int[] arr = new int[0];
             try
             {
                 // Попробуйте осуществить считывание целочисленного массива, записав это ОДНИМ ВЫРАЖЕНИЕМ.
-                arr = 
+                arr = Array.ConvertAll(Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
+                    n => int.Parse(n));
             }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            var filteredCollection =
+                arr.TakeWhile(n => n != 0);
             
-            
-            var filteredCollection = arr.
-           
+            filteredCollection = filteredCollection.Select(n => n * n);
+
             try
             {
-                
                 // использовать статическую форму вызова метода подсчета среднего
-                double averageUsingStaticForm = 
+                var collection = filteredCollection.ToList();
+                double averageUsingStaticForm = collection.Average();
+                Console.WriteLine($"{averageUsingStaticForm:F3}");
+
                 // использовать объектную форму вызова метода подсчета среднего
-                double averageUsingInstanceForm = 
+                double averageUsingInstanceForm = Enumerable.Average(collection);
+                Console.WriteLine($"{averageUsingInstanceForm:F3}");
 
-
+                
                 // вывести элементы коллекции в одну строку
-                filteredCollection.
+                Console.WriteLine(arr.TakeWhile(n => n != 0).Select(n => n.ToString())
+                    .Aggregate((n, m) => n + " " + m));
             }
-          
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
-        
     }
 }
