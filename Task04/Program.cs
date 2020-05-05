@@ -67,8 +67,7 @@ namespace Task04
             {
                 checked
                 {
-                    int arrAggregate = 5 + arr.Aggregate((m, n) => (m - n) * -1);
-
+                    int arrAggregate = 5 + arr.Select((x, index) => x * (int)Math.Pow(-1, index)).Aggregate((n, m) => n + m);
                     int arrMyAggregate = MyClass.MyAggregate(arr);
 
                     Console.WriteLine(arrAggregate);
@@ -90,7 +89,7 @@ namespace Task04
     {
         public static int MyAggregate(int[] collection)
         {
-            return 5 + collection.Aggregate((m, n) => (m - n) * -1);
+            return 5 + collection.Select((x, index) => x * (int)Math.Pow(-1, index)).Aggregate((n, m) => n + m);
         }
     }
 }
