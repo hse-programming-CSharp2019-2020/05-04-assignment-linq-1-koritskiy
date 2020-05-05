@@ -63,7 +63,7 @@ namespace Task01
             }
 
             // использовать синтаксис запросов!
-            IEnumerable<int> arrQuery = from int i in arr where i < 0 || i % 2 == 0 select i;
+            IEnumerable<int> arrQuery = from i in arr where i < 0 || i % 2 == 0 select i;
 
             // использовать синтаксис методов!
             IEnumerable<int> arrMethod = arr.Where(i => i < 0 || i % 2 == 0);
@@ -77,7 +77,7 @@ namespace Task01
             {
                 Console.WriteLine(e.Message);
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine(e.Message);
             }
