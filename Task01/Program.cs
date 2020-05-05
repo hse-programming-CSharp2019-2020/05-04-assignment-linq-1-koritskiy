@@ -49,17 +49,17 @@ namespace Task01
                     Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
                     n => int.Parse(n));
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ArgumentException");
             }
-            catch (FormatException e)
+            catch (FormatException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("FormatException");
             }
-            catch (OverflowException e)
+            catch (OverflowException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("OverflowException");
             }
 
             // использовать синтаксис запросов!
@@ -73,13 +73,13 @@ namespace Task01
                 PrintEnumerableCollection<int>(arrQuery, ":");
                 PrintEnumerableCollection<int>(arrMethod, "*");
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ArgumentNullException");
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("InvalidOperationException");
             }
         }
 

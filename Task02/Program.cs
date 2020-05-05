@@ -46,13 +46,13 @@ namespace Task02
                 arr = Array.ConvertAll(Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
                     n => int.Parse(n));
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ArgumentException");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Exception");
             }
 
             var filteredCollection =
@@ -76,13 +76,13 @@ namespace Task02
                 Console.WriteLine(arr.TakeWhile(n => n != 0).Select(n => n.ToString())
                     .Aggregate((n, m) => n + " " + m));
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("InvalidOperationException");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Exception");
             }
         }
     }
