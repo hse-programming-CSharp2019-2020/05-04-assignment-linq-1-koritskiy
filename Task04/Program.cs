@@ -47,36 +47,35 @@ namespace Task04
                 arr = Array.ConvertAll(Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
                     n => int.Parse(n));
             }
-            catch (FormatException e)
+            catch (ArgumentException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ArgumentException");
             }
-            catch (ArgumentException e)
+            catch (FormatException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("FormatException");
             }
-            catch (Exception e)
+            catch (OverflowException)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("OverflowException");
             }
 
             // использовать синтаксис методов! SQL-подобные запросы не писать!
 
             int arrAggregate = 5 + arr.Aggregate((m, n) => (m - n) * -1);
 
-            // int arrMyAggregate = MyClass.MyAggregate(arr);
+            int arrMyAggregate = MyClass.MyAggregate(arr);
 
             Console.WriteLine(arrAggregate);
-            // Console.WriteLine(arrMyAggregate);
+            Console.WriteLine(arrMyAggregate);
         }
     }
 
     static class MyClass
     {
-        public static int MyAggregate()
+        public static int MyAggregate(int[] collection)
         {
-            int a = 5;
-            return a;
+            return 5 + collection.Aggregate((m, n) => (m - n) * -1);
         }
     }
 }
