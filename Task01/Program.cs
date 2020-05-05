@@ -53,7 +53,11 @@ namespace Task01
             {
                 Console.WriteLine(e.Message);
             }
-            catch (Exception e)
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (OverflowException e)
             {
                 Console.WriteLine(e.Message);
             }
