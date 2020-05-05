@@ -52,17 +52,14 @@ namespace Task01
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
-                return;
             }
             catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
-                return;
             }
             catch (OverflowException e)
             {
                 Console.WriteLine(e.Message);
-                return;
             }
 
             // использовать синтаксис запросов!
@@ -76,11 +73,11 @@ namespace Task01
                 PrintEnumerableCollection<int>(arrQuery, ":");
                 PrintEnumerableCollection<int>(arrMethod, "*");
             }
-            catch (InvalidOperationException e)
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine(e.Message);
             }
-            catch (ArgumentNullException e)
+            catch (InvalidOperationException e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -90,7 +87,7 @@ namespace Task01
         // P.S. Есть два способа, оставьте тот, в котором применяется LINQ...
         public static void PrintEnumerableCollection<T>(IEnumerable<T> collection, string separator)
         {
-            Console.WriteLine(collection.Select(n => n.ToString()).Aggregate((n, m) => n + separator + m));
+            Console.WriteLine(collection.Select(n => n.ToString()).Aggregate((n, m) => n.ToString() + separator + m.ToString()));
         }
     }
 }
