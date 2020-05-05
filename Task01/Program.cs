@@ -45,9 +45,9 @@ namespace Task01
             try
             {
                 // Попробуйте осуществить считывание целочисленного массива, записав это ОДНИМ ВЫРАЖЕНИЕМ.
-                arr = Array.ConvertAll(
-                    Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries),
-                    n => int.Parse(n));
+                arr = (from n in Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+                    select int.Parse(n)).ToArray();
+
             }
             catch (ArgumentException e)
             {
