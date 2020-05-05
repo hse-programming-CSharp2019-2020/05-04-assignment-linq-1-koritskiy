@@ -62,12 +62,27 @@ namespace Task04
 
             // использовать синтаксис методов! SQL-подобные запросы не писать!
 
-            int arrAggregate = 5 + arr.Aggregate((m, n) => (m - n) * -1);
 
-            int arrMyAggregate = MyClass.MyAggregate(arr);
+            try
+            {
+                checked
+                {
+                    int arrAggregate = 5 + arr.Aggregate((m, n) => (m - n) * -1);
 
-            Console.WriteLine(arrAggregate);
-            Console.WriteLine(arrMyAggregate);
+                    int arrMyAggregate = MyClass.MyAggregate(arr);
+
+                    Console.WriteLine(arrAggregate);
+                    Console.WriteLine(arrMyAggregate);
+                }
+            } 
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("ArgumentNullException");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
+            }
         }
     }
 
